@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>{{ escape(page_title) }}</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Rank</td>
+            <td>Name</td>
+            <td>Score</td>
+            {% for column in columns %}
+            <td>{{ escape(column) }}</td>
+            {% end %}
+        </tr>
+        {% for i,row in enumerate(rows) %}
+        <tr>
+            <td>{{ i+1 }}</td>
+            <td>{{ row["Name"] }}</td>
+            <td>{{ row["Score"] }}</td>
+            {% for column in columns %}
+            <td>{{ row[column] }}</td>
+            {% end %}
+        </tr>
+        {% end %}
+    </table>
+</body>
+</html>
